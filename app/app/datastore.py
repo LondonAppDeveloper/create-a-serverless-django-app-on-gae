@@ -5,6 +5,7 @@ from google.cloud import ndb
 from google.auth.credentials import AnonymousCredentials
 
 from django.conf import settings
+from django.test.runner import DiscoverRunner
 
 
 def get_client():
@@ -35,3 +36,15 @@ class NDBMiddlware:
             response = self.get_response(request)
 
         return response
+
+
+class TestRunner(DiscoverRunner):
+    """A test suite runner that uses Datastore."""
+
+    def setup_databases(self, **kwargs):
+        """Setup the database."""
+        pass
+
+    def teardown_databases(self, old_config, **kwargs):
+        """Clear down database."""
+        pass
