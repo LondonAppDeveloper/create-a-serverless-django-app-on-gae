@@ -2,6 +2,8 @@
 
 ## Docker Compose Commands
 
+### Django Commands
+
 Create Django project:
 
 ```sh
@@ -18,4 +20,12 @@ Run development server:
 
 ```sh
 docker-compose up
+```
+
+### CloudSDK Commands
+
+Check version of CloudSDK:
+
+```sh
+docker-compose -f docker-compose-deploy.yml run gcloud gcloud version
 ```
