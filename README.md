@@ -1,2 +1,3 @@
-# create-a-serverless-django-app-on-gae
-Create a Serverless Django app on on Google App Engine
+# Create a Serverless Django app on Google App Engine
+
+Course project code for creating a Serverless Django app on Google App Engine.
