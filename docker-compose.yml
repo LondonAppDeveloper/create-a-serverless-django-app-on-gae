@@ -9,3 +9,11 @@ services:
     volumes:
       - ./app:/app
       - ./static:/vol/static
+
+  datastore:
+    build:
+      context: ./docker/datastore
+    volumes:
+      - ./data:/data
+    environment:
+      - DATASTORE_PROJECT_ID=local-dev
