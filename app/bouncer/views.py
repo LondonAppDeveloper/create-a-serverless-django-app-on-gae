@@ -14,6 +14,6 @@ def landing(request):
     return render(request, 'bouncer/index.html', {'redirects': redirects})
 
 
-def redirect(request, slug):
+def handle_redirect(request, slug):
     """Handle a redirect."""
     pass
