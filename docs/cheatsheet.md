@@ -87,3 +87,4 @@ with client.context():
  
 ```
 
+Note: You need to hit enter twice after the final line.
