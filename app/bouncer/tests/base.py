@@ -5,6 +5,7 @@ import inspect
 
 from google.cloud import ndb
 
+from django.test import Client
 from django.conf import settings
 from django.test import (
     SimpleTestCase,
@@ -22,6 +23,10 @@ TEST_NAMESPACE = f'test_{settings.DATASTORE_NAMESPACE}'
 @override_settings(DATASTORE_NAMESPACE=TEST_NAMESPACE)
 class DatastoreTestCase(SimpleTestCase):
     """Base class for Datastore tests."""
+
+    def setUp(self):
+        self.client = Client()
+        self.ds_client = get_client()
 
     def _clear_entities(self):
         """Clear database entities."""
