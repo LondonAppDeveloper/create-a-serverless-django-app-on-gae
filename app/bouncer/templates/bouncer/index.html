@@ -9,7 +9,7 @@
     <h1>Short URL Links</h1>
     <ul>
       {% for redirect in redirects %}
-        <li><a href="{% url 'bouncer:redirect' name=redirect.key.id %}">{{ redirect.name }}</a></li>
+        <li><a href="{% url 'bouncer:redirect' slug=redirect.key.id %}">{{ redirect.name }}</a></li>
       {% endfor %}
     </ul>
   </body>

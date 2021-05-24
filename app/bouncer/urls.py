@@ -10,6 +10,6 @@ app_name = 'bouncer'
 
 
 urlpatterns = [
-    path('<str:name>/', views.redirect, name='redirect'),
+    path('<str:slug>/', views.redirect, name='redirect'),
     path('', views.landing, name='landing'),
 ]
