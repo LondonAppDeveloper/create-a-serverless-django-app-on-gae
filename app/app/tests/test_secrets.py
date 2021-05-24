@@ -31,7 +31,7 @@ class SecretManagerTests(SimpleTestCase):
         mock_version_res = Mock()
         secret = 'samplesecret123'
         secret_bytes = bytes(secret, 'utf-8')
-        mock_version_res.payload.data.decode.return_value = secret_bytes
+        mock_version_res.payload.data = secret_bytes
         mock_client.access_secret_version.return_value = mock_version_res
 
         name = 'SampleSecretName'
