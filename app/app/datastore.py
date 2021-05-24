@@ -20,7 +20,7 @@ def get_client():
     )
 
 
-class NDBMiddlware:
+class NDBMiddleware:
     """Middlware for handling NDB context."""
 
     def __init__(self, get_response):
