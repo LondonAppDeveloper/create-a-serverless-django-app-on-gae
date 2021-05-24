@@ -15,7 +15,7 @@ class RedirectTests(DatastoreTestCase):
 
     def test_not_found(self):
         """Test redirect not found returns 404."""
-        url = reverse('bouncer:redirect', kwargs={'name': 'notfound'})
+        url = reverse('bouncer:redirect', kwargs={'slug': 'notfound'})
         res = self.client.get(url, follow=False)
 
         self.assertEqual(res.status_code, 404)
