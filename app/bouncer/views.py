@@ -2,7 +2,13 @@
 Main view functions for handling requests.
 """
 
-from django.shortcuts import render
+from google.cloud import ndb
+
+from django.shortcuts import (
+    render,
+    redirect,
+)
+from django.http import Http404
 
 from bouncer.models import Redirect
 
@@ -16,4 +22,8 @@ def landing(request):
 
 def handle_redirect(request, slug):
     """Handle a redirect."""
-    pass
+    redirect_entity = ndb.Key(Redirect, slug).get()
+    if not redirect_entity:
+        raise Http404('Not found')
+
+    return redirect(redirect_entity.destination_url, permanent=True)
