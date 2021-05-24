@@ -42,4 +42,6 @@ class LandingPageTests(DatastoreTestCase):
 
         self.assertEqual(res.status_code, 200)
         for r in [r1, r2]:
+            url = reverse('bouncer:redirect', kwargs={'name': r.key.id()})
+            self.assertContains(res, url)
             self.assertContains(res, r.name)
