@@ -45,4 +45,27 @@ docker-compose run --rm app sh -c "python manage.py collectstatic --noinput"
 docker-compose -f docker-compose-deploy.yml run gcloud gcloud app deploy --project PROJECT_ID
 ```
 
+## Django Shell Datastore
 
+### Creating an Entity
+
+To create a new `Redirect` entity, enter the Django shell by running:
+
+```sh
+docker-compose run --rm app sh -c "python manage.py shell"
+```
+
+In the interactive shell, run the following:
+
+```sh
+from google.cloud import ndb
+from app.datastore import get_client
+from bouncer.models import Redirect
+ 
+client = get_client()
+ 
+with client.context():
+    key = ndb.Key(Redirect, 'sample-redirect')
+    redirect = Redirect(key=key, name='Sample Redirect', destination_url='https://example.com')
+    redirect.put()
+```
